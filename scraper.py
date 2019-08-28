@@ -26,7 +26,7 @@ def clean(phrase: str) -> str:
     for word in phrase.split(" "):
         if predict([word])[0] != 1:
             cleanphrase.append(word)
-    return "".join(cleanphrase)
+    return " ".join(cleanphrase)
 
 
 if __name__ == "__main__":
