@@ -1,6 +1,6 @@
 import urllib.request
 import os
-from profanity_check import predict
+from profanity_check import predict_prob
 
 
 def main():
@@ -24,11 +24,10 @@ def main():
 def clean(phrase: str) -> str:
     cleanphrase = []
     for word in phrase.split(" "):
-        if predict([word])[0] != 1:
+        if predict_prob([word])[0] < 0.5:
             cleanphrase.append(word)
     return " ".join(cleanphrase)
 
 
 if __name__ == "__main__":
-    for i in range(100):
-        main()
+    main()
