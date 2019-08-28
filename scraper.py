@@ -17,7 +17,7 @@ def main():
 
     os.system(R"cd C:\Users\zacha\Documents\MEGAsync\Zachary\Self\Programs\Python\CommitMessages")
     os.system("git add scraper.py")
-    os.system("git commit -m \"" + str(message) + "\"")
+    os.system("git commit --allow-empty -m \"" + str(message) + "\"")
     os.system("git push")
 
 
