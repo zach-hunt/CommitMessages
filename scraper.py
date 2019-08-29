@@ -14,7 +14,7 @@ def main():
     message = clean(message)
     if len(message) == 0:
         main()
-		# return
+        return
 
     os.system(r"cd C:\Users\zacha\Documents\MEGAsync\Zachary\Self\Programs\Python\CommitMessages")
     os.system("git add scraper.py")
