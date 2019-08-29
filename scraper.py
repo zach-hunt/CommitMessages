@@ -14,8 +14,9 @@ def main():
     message = clean(message)
     if len(message) == 0:
         main()
+		# return
 
-    os.system(R"cd C:\Users\zacha\Documents\MEGAsync\Zachary\Self\Programs\Python\CommitMessages")
+    os.system(r"cd C:\Users\zacha\Documents\MEGAsync\Zachary\Self\Programs\Python\CommitMessages")
     os.system("git add scraper.py")
     os.system("git commit --allow-empty -m \"" + str(message) + "\"")
     os.system("git push")
