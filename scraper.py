@@ -3,6 +3,14 @@ import os
 from profanity_check import predict_prob
 
 
+def clean(phrase: str) -> str:
+    cleanphrase = []
+    for word in phrase.split(" "):
+        if predict_prob([word])[0] < 0.5:
+            cleanphrase.append(word)
+    return " ".join(cleanphrase)
+
+
 def main():
     site = urllib.request.urlopen("http://whatthecommit.com/").read()
     content = str(site)
@@ -20,14 +28,6 @@ def main():
     os.system("git add scraper.py")
     os.system("git commit --allow-empty -m \"" + str(message) + "\"")
     os.system("git push")
-
-
-def clean(phrase: str) -> str:
-    cleanphrase = []
-    for word in phrase.split(" "):
-        if predict_prob([word])[0] < 0.5:
-            cleanphrase.append(word)
-    return " ".join(cleanphrase)
 
 
 if __name__ == "__main__":
